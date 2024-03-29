@@ -55,10 +55,7 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 
 Fixed &Fixed::operator = (const Fixed &fixed)
 {
-	if (this == &fixed)
-		return (*this);
 	this->fixedValue = fixed.fixedValue;
-	this->fractionalBits = fixed.fractionalBits;
 	return (*this);
 }
 
@@ -106,7 +103,7 @@ Fixed& Fixed::operator - (const Fixed& other)
 
 Fixed& Fixed::operator * (const Fixed& other)
 {
-	this->fixedValue *= other.fixedValue;
+	this->fixedValue *= other.toFloat();
 	return (*this);
 }
 
@@ -143,7 +140,6 @@ const Fixed Fixed::operator -- (int)
 	this->fixedValue--;
 	return (*tmp);
 }
-
 
 
 std::ostream& operator << (std::ostream& os, const Fixed& other)
