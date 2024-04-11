@@ -17,6 +17,9 @@
 			float toFloat() const;
 			int toInt() const;
 
+			int getRawBits() const;
+			void setRawBits(int const raw);
+
 			Fixed &operator=(const Fixed &fixed);
 	};
 std::ostream& operator << (std::ostream& os, const Fixed& other);
